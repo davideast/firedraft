@@ -12,9 +12,15 @@
       return Player.create(params);
     };
 
-    playerService.startAt = function(limit) {
-      var playerRef = new Firebase(PLAYER_URL).startAt().limit(limit),
+    playerService.load = function(limit) {
+      var playerRef,
           deferred = $q.defer();
+
+      if (limit) {
+        playerRef = new Firebase(PLAYER_URL).startAt().limit(limit);
+      } else {
+        playerRef = new Firebase(PLAYER_URL);
+      }
 
       playerRef.once('value', function(snapshot) {
         var players = [];
@@ -32,13 +38,31 @@
       return deferred.promise;
     };
 
-    playerService.endAt = function(last, limit) {
-      var playerRef = new Firebase(PLAYER_URL).endAt(last).limit(limit),
+    playerService.startAt = function(last, limit) {
+      var playerRef = new Firebase(PLAYER_URL).startAt(null, last).limit(limit),
           deferred = $q.defer();
 
-      playerRef.once('value', function(snapshot, last) {
+      playerRef.once('value', function(snapshot) {
         var players = [];
-        console.log(last);
+        snapshot.forEach(function(player) {
+          var params = {};
+          params = player.val();
+          params.id = player.name();
+          players.push(Player.create(params));
+        });
+
+        deferred.resolve(players);
+      });
+
+      return deferred.promise;
+    };
+
+    playerService.endAt = function(last, limit) {
+      var playerRef = new Firebase(PLAYER_URL).endAt(null, last).limit(limit),
+          deferred = $q.defer();
+
+      playerRef.once('value', function(snapshot) {
+        var players = [];
         snapshot.forEach(function(player) {
           var params = {};
           params = player.val();

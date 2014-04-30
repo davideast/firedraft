@@ -32,7 +32,11 @@
   </div>
 </div>
 
-<div class="paging text-center" data-ng-if="searched">
-  <button class="btn btn-primary">&larr;</button>
-  <button class="btn btn-primary">&rarr;</button>
+<div class="paging text-center" data-ng-if="searched && players.length !== 1">
+  <button class="btn btn-primary"
+          data-ng-click="previous()"
+          data-ng-disabled="prevDisabled">&larr;</button>
+  <button class="btn btn-primary"
+          data-ng-click="next()"
+          data-ng-disabled="nextDisabled">&rarr;</button>
 </div>
