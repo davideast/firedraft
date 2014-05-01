@@ -1,7 +1,7 @@
 <div class="header">
   <ul class="nav nav-pills pull-right">
-    <li class="active"><a ng-href="#">Players</a></li>
-    <li><a ng-href="#">Live</a></li>
+    <li class="active"><a href="#/players">Players</a></li>
+    <li><a href="#/live">Live</a></li>
   </ul>
   <h3 class="text-muted">firedraft</h3>
 </div>
@@ -21,15 +21,28 @@
   </div>
   <div class="player-info col-sm-6 col-xs-12">
     <h3>{{ player.first }} {{ player.last }}</h3>
+    <h5>{{ player.pos }}</h5>
   </div>
-  <div class="player-feedback col-sm-3 col-xs-12">
+
+
+<!--   <div data-ng-if="!player.pick" class="player-feedback col-sm-3 col-xs-12">
     <h5>Would you draft him?</h5>
     <button class="btn btn-success col-xs-6 up-vote">Yes</button>
     <button class="btn btn-danger col-xs-6 down-vote">No</button>
     <div class="col-xs-12 score">
-      <h3>12</h3>
+      <h3>{{ player.predraft }}</h3>
+    </div>
+  </div> -->
+
+  <div data-ng-if="player.pick" class="player-feedback col-sm-3 col-xs-12">
+    <h5>Like the pick?</h5>
+    <button class="btn btn-success col-xs-6 up-vote">Yes</button>
+    <button class="btn btn-danger col-xs-6 down-vote">No</button>
+    <div class="col-xs-12 score">
+      <h3>{{ player.postdraft }}</h3>
     </div>
   </div>
+
 </div>
 
 <div class="paging text-center" data-ng-if="searched && players.length !== 1">

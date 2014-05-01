@@ -8,21 +8,31 @@
 
     var playerService = {};
 
+    playerService.currentListener = false;
+
+    playerService.offLoad = function(ref) {
+      if (playerService.currentListener) {
+        playerService.currentListener.off();
+        playerService.currentListener = ref;
+      }
+    };
+
     playerService.create = function(params) {
       return Player.create(params);
     };
 
-    playerService.load = function(limit) {
-      var playerRef,
-          deferred = $q.defer();
+    playerService.load = function(limit, callback) {
+      var playerRef;
+      playerService.offLoad(playerRef);
 
       if (limit) {
         playerRef = new Firebase(PLAYER_URL).startAt().limit(limit);
       } else {
         playerRef = new Firebase(PLAYER_URL);
       }
+      playerService.currentListener = playerRef;
 
-      playerRef.once('value', function(snapshot) {
+      playerRef.on('value', function(snapshot) {
         var players = [];
 
         snapshot.forEach(function(player) {
@@ -30,19 +40,22 @@
           params = player.val();
           params.id = player.name();
           players.push(Player.create(params));
+          // PickService.getByPlayerId(params.id).then(function(pick) {
+          //   params.pick = pick;
+          //   players.push(Player.create(params));
+          // });
         });
 
-        deferred.resolve(players);
+        callback.call(this, players);
       });
 
-      return deferred.promise;
     };
 
-    playerService.startAt = function(last, limit) {
-      var playerRef = new Firebase(PLAYER_URL).startAt(null, last).limit(limit),
-          deferred = $q.defer();
+    playerService.startAt = function(last, limit, callback) {
+      var playerRef = new Firebase(PLAYER_URL).startAt(null, last).limit(limit);
+      playerService.offLoad(playerRef);
 
-      playerRef.once('value', function(snapshot) {
+      playerRef.on('value', function(snapshot) {
         var players = [];
         snapshot.forEach(function(player) {
           var params = {};
@@ -51,17 +64,16 @@
           players.push(Player.create(params));
         });
 
-        deferred.resolve(players);
+        callback.call(this, players);
       });
 
-      return deferred.promise;
     };
 
-    playerService.endAt = function(last, limit) {
-      var playerRef = new Firebase(PLAYER_URL).endAt(null, last).limit(limit),
-          deferred = $q.defer();
+    playerService.endAt = function(last, limit, callback) {
+      var playerRef = new Firebase(PLAYER_URL).endAt(null, last).limit(limit);
+      playerService.offLoad(playerRef);
 
-      playerRef.once('value', function(snapshot) {
+      playerRef.on('value', function(snapshot) {
         var players = [];
         snapshot.forEach(function(player) {
           var params = {};
@@ -70,10 +82,9 @@
           players.push(Player.create(params));
         });
 
-        deferred.resolve(players);
+        callback.call(this, players);
       });
 
-      return deferred.promise;
     };
 
     playerService.indexes = function() {
@@ -100,15 +111,27 @@
       return deferred.promise;
     };
 
-    playerService.findById = function(id) {
-      var playerRef = new Firebase(PLAYER_URL).child(id),
-          deferred = $q.defer();
+    playerService.findById = function(id, callback) {
+      var playerRef = new Firebase(PLAYER_URL).child(id);
+      playerService.offLoad(playerRef);
 
-      playerRef.once('value', function(snapshot) {
-        deferred.resolve(createPlayerFromSnapshot(snapshot));
+      playerRef.on('value', function(snapshot) {
+        callback.call(this, createPlayerFromSnapshot(snapshot));
       });
 
-      return deferred.promise;
+    };
+
+    playerService.listenToPlayer = function(player, callback) {
+      var playerRef = new Firebase(PLAYER_URL).child(player.id);
+      playerRef.on('value', function(snapshot) {
+        var player = createPlayerFromSnapshot(snapshot);
+        callback.call(this, player);
+      });
+    };
+
+    playerService.updatePlayer = function(player) {
+      var playerRef = new Firebase(PLAYER_URL).child(player.id);
+      playerRef.update(player);
     };
 
     function createPlayerFromSnapshot(snapshot) {
