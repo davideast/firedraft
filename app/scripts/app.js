@@ -22,6 +22,18 @@
           templateUrl: 'views/live.html',
           controller: 'LiveCtrl'
         })
+        .when('/ninja-log', {
+          templateUrl: 'views/login.html',
+          controller: 'LoginCtrl'
+        })
+        .when('/ninja', {
+          templateUrl: 'views/ninja.html',
+          controller: 'NinjaCtrl'
+        })
+        .when('/ninja-out', {
+          template: 'Logging out...',
+          controller: 'LogoutCtrl'
+        })
         .otherwise({
           redirectTo: '/'
         });
