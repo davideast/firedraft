@@ -20,7 +20,7 @@
 
         PickService.load(function(promise) {
           promise.then(function(picks) {
-            $scope.picks = picks;
+            $scope.picks = picks.reverse();
           });
         });
       }
