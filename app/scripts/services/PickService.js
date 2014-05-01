@@ -7,6 +7,10 @@
   app.service('PickService', function($q, PICK_URL, PLAYER_URL, Pick, PICKINDEX_URL) {
     var pickService = {};
 
+    // Loads the picks from the api and returns them as they are updated.
+    // Picks are joined with Players and that result is returned as a
+    // single promise. Once all of the results have been returned the
+    // promises are combined and passed through the callback with $q.all()
     pickService.load = function(callback) {
       var pickRef = new Firebase(PICK_URL),
           playerRef = new Firebase(PLAYER_URL);
@@ -32,6 +36,29 @@
 
     };
 
+    pickService.upVote = function(pick) {
+      var pickRef = new Firebase(PICK_URL).child(pick.id).child('upVotes');
+      pickRef.push(true);
+    };
+
+    pickService.downVote = function(pick) {
+      var pickRef = new Firebase(PICK_URL).child(pick.id).child('downVotes');
+      pickRef.push(true);
+    };
+
+    // Updates the pick to the api.
+    pickService.update = function(pick) {
+      var pickRef = new Firebase(PICK_URL).child(pick.id),
+          pickModel = Pick.create(pick);
+
+      if (pickModel.player) {
+        delete pickModel.player;
+      }
+
+      console.log(pickModel);
+      pickRef.update(pickModel);
+    };
+
     pickService.getByPlayerId = function(playerId) {
       var indexRef = new Firebase(PICKINDEX_URL),
           pickRef = new Firebase(PICK_URL),
@@ -53,12 +80,9 @@
       return deferred.promise;
     };
 
-    // pickService.getById = function(id) {
-    //   var indexRef = new Firebase(PICKINDEX_URL),
-    //       pickRef = new Firebase(PICK_URL),
-    //       deferred = $q.defer();
-    // };
-
+    // Creates a pick from the parameters and also
+    // creates the corresponding index to find the player
+    // by the pick id.
     pickService.createPick = function(params) {
 
       var pick = Pick.create(params),

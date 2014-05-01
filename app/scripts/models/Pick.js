@@ -12,7 +12,10 @@
           this.teamId = params.teamId;
           this.teamName = params.teamName || null;
           this.score = params.score || null;
+          this.upVotes = this.setCount(params.upVotes);
+          this.downVotes = this.setCount(params.downVotes);
           this.player = this.setPlayer(params.player);
+          this.score = this.upVotes - this.downVotes;
         }
         Pick.prototype = {
           setPlayer: function(params) {
@@ -20,6 +23,13 @@
               return Player.create(params);
             } else {
               return false;
+            }
+          },
+          setCount: function(votes) {
+            if (votes) {
+              return Object.keys(votes).length;
+            } else {
+              return 0;
             }
           }
         };

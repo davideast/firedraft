@@ -31,6 +31,12 @@
     .constant('TEAM_URL', 'https://firedraft.firebaseio.com/teams')
     .constant('PICK_URL', 'https://firedraft.firebaseio.com/picks')
     .constant('PICKINDEX_URL', 'https://firedraft.firebaseio.com/pickIndex')
-    .constant('NAMEINDEX_URL', 'https://firedraft.firebaseio.com/nameIndex');
+    .constant('NAMEINDEX_URL', 'https://firedraft.firebaseio.com/nameIndex')
+    .run(function($cookieStore) {
+      var userVotesCookie = $cookieStore.get('userVotes');
+      if (!userVotesCookie) {
+        $cookieStore.put('userVotes', {});
+      }
+    });
 
 }(window, window.angular));
