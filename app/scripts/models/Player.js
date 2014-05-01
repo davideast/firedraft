@@ -3,7 +3,7 @@
 
   var app = angular.module('firedraftApp');
 
-  app.factory('Player', ['Pick', function(Pick) {
+  app.factory('Player', [function() {
 
       var Player = (function() {
         function Player(params) {
@@ -18,16 +18,10 @@
           this.picture = params.picture;
           this.predraft = params.predraft || 0;
           this.postdraft = params.postdraft || 0;
-          this.pick = this.setPick(params.pick);
+          //this.pick = this.setPick(params.pick);
         }
         Player.prototype = {
-          setPick: function(params) {
-            if (params) {
-              return Pick.create(params);
-            } else {
-              return false;
-            }
-          }
+
         };
         return Player;
       }());

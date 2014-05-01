@@ -7,6 +7,31 @@
   app.service('PickService', function($q, PICK_URL, PLAYER_URL, Pick, PICKINDEX_URL) {
     var pickService = {};
 
+    pickService.load = function(callback) {
+      var pickRef = new Firebase(PICK_URL),
+          playerRef = new Firebase(PLAYER_URL);
+
+      pickRef.on('value', function(picksShot) {
+        var picks = [];
+
+        picksShot.forEach(function(pickshot) {
+          var pick = pickshot.val(),
+              subDeferred = $q.defer();
+
+          playerRef.child(pick.playerId).once('value', function(playershot) {
+            pick.player = playershot.val();
+            subDeferred.resolve(Pick.create(pick));
+          });
+
+          picks.push(subDeferred.promise);
+
+        });
+
+        callback.call(this, $q.all(picks));
+      });
+
+    };
+
     pickService.getByPlayerId = function(playerId) {
       var indexRef = new Firebase(PICKINDEX_URL),
           pickRef = new Firebase(PICK_URL),
@@ -52,6 +77,12 @@
         id: 1,
         playerId: '-JLjbRwFM-iAOdUUv1U3',
         teamId: 'HOU'
+      });
+
+      pickService.createPick({
+        id: 2,
+        playerId: '-JLjbRwHpTNXRcrD3FHQ',
+        teamId: 'STL'
       });
 
 
