@@ -53,9 +53,11 @@
 
       if (pickModel.player) {
         delete pickModel.player;
+        delete pickModel.downVoteCount;
+        delete pickModel.upVoteCount;
+        delete pickModel.score;
       }
 
-      console.log(pickModel);
       pickRef.update(pickModel);
     };
 
@@ -157,7 +159,7 @@
         });
 
         count++;
-      }, 500);
+      }, 1000);
 
 
     };

@@ -12,10 +12,12 @@
           this.teamId = params.teamId;
           this.teamName = params.teamName || null;
           this.score = params.score || null;
-          this.upVotes = this.setCount(params.upVotes);
-          this.downVotes = this.setCount(params.downVotes);
+          this.upVotes = params.upVotes || [];
+          this.downVotes = params.downVotes || [];
+          this.upVoteCount = this.setCount(params.upVotes);
+          this.downVoteCount = this.setCount(params.downVotes);
+          this.score = this.upVoteCount - this.downVoteCount;
           this.player = this.setPlayer(params.player);
-          this.score = this.upVotes - this.downVotes;
         }
         Pick.prototype = {
           setPlayer: function(params) {
