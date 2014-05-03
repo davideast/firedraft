@@ -42,6 +42,7 @@
     .constant('PLAYER_URL', 'https://firedraft.firebaseio.com/players')
     .constant('TEAM_URL', 'https://firedraft.firebaseio.com/teams')
     .constant('PICK_URL', 'https://firedraft.firebaseio.com/picks')
+    .constant('VOTE_URL', 'https://firedraft.firebaseio.com/votes')
     .constant('PICKINDEX_URL', 'https://firedraft.firebaseio.com/pickIndex')
     .constant('NAMEINDEX_URL', 'https://firedraft.firebaseio.com/nameIndex')
     .run(function($cookieStore) {
