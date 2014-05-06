@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,100);
+
 /*! normalize.css v3.0.1 | MIT License | git.io/normalize */
 
 /* line 9, ../../app/bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/_normalize.scss */
@@ -20154,6 +20156,252 @@ button.close {
   }
 }
 
+/* line 2, ../../app/styles/nfl-icons.scss */
+
+[class^="nfl-"],
+[class*=" nfl-"] {
+  display: inline-block;
+  width: 48px;
+  height: 34px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("nfl-logos.jpg");
+  background-position: 48px 34px;
+  background-repeat: no-repeat;
+}
+
+/* line 15, ../../app/styles/nfl-icons.scss */
+
+[class^="nfl-"]:last-child,
+[class*=" nfl-"]:last-child {
+  *margin-left: 0;
+}
+
+/* line 19, ../../app/styles/nfl-icons.scss */
+
+.nfl-ARI {
+  background-position: -2px 0px;
+}
+
+/* line 23, ../../app/styles/nfl-icons.scss */
+
+.nfl-ATL {
+  background-position: -48px 0;
+}
+
+/* line 27, ../../app/styles/nfl-icons.scss */
+
+.nfl-BAL {
+  background-position: -94px 0;
+}
+
+/* line 31, ../../app/styles/nfl-icons.scss */
+
+.nfl-BUF {
+  background-position: -140px 0;
+}
+
+/* line 35, ../../app/styles/nfl-icons.scss */
+
+.nfl-CAR {
+  background-position: -184px 0;
+}
+
+/* line 39, ../../app/styles/nfl-icons.scss */
+
+.nfl-CHI {
+  background-position: -230px 0;
+}
+
+/* line 43, ../../app/styles/nfl-icons.scss */
+
+.nfl-CIN {
+  height: 32px;
+  background-position: 0px -32px;
+}
+
+/* line 48, ../../app/styles/nfl-icons.scss */
+
+.nfl-CLE {
+  height: 32px;
+  background-position: -48px -32px;
+}
+
+/* line 53, ../../app/styles/nfl-icons.scss */
+
+.nfl-DAL {
+  height: 32px;
+  background-position: -93px -32px;
+}
+
+/* line 58, ../../app/styles/nfl-icons.scss */
+
+.nfl-DEN {
+  height: 32px;
+  background-position: -140px -32px;
+}
+
+/* line 63, ../../app/styles/nfl-icons.scss */
+
+.nfl-DET {
+  height: 32px;
+  background-position: -186px -32px;
+}
+
+/* line 68, ../../app/styles/nfl-icons.scss */
+
+.nfl-GB {
+  height: 30px;
+  background-position: -232px -33px;
+}
+
+/* line 73, ../../app/styles/nfl-icons.scss */
+
+.nfl-HOU {
+  height: 30px;
+  background-position: 0px -63px;
+}
+
+/* line 78, ../../app/styles/nfl-icons.scss */
+
+.nfl-IND {
+  height: 30px;
+  background-position: -47px -63px;
+}
+
+/* line 83, ../../app/styles/nfl-icons.scss */
+
+.nfl-JAC {
+  height: 30px;
+  background-position: -94px -63px;
+}
+
+/* line 88, ../../app/styles/nfl-icons.scss */
+
+.nfl-KC {
+  height: 30px;
+  background-position: -140px -63px;
+}
+
+/* line 93, ../../app/styles/nfl-icons.scss */
+
+.nfl-MIA {
+  height: 30px;
+  background-position: -186px -63px;
+}
+
+/* line 98, ../../app/styles/nfl-icons.scss */
+
+.nfl-MIN {
+  height: 30px;
+  background-position: -231px -63px;
+}
+
+/* line 103, ../../app/styles/nfl-icons.scss */
+
+.nfl-NE {
+  height: 26px;
+  background-position: -2px -94px;
+}
+
+/* line 108, ../../app/styles/nfl-icons.scss */
+
+.nfl-NO {
+  height: 30px;
+  background-position: -48px -93px;
+}
+
+/* line 113, ../../app/styles/nfl-icons.scss */
+
+.nfl-NYG {
+  height: 30px;
+  background-position: -93px -93px;
+}
+
+/* line 118, ../../app/styles/nfl-icons.scss */
+
+.nfl-NYJ {
+  height: 30px;
+  background-position: -139px -93px;
+}
+
+/* line 123, ../../app/styles/nfl-icons.scss */
+
+.nfl-OAK {
+  height: 30px;
+  background-position: -185px -93px;
+}
+
+/* line 128, ../../app/styles/nfl-icons.scss */
+
+.nfl-PHI {
+  height: 30px;
+  background-position: -232px -93px;
+}
+
+/* line 134, ../../app/styles/nfl-icons.scss */
+
+.nfl-PIT {
+  height: 30px;
+  background-position: -2px -122px;
+}
+
+/* line 139, ../../app/styles/nfl-icons.scss */
+
+.nfl-SD {
+  height: 30px;
+  background-position: -47px -122px;
+}
+
+/* line 144, ../../app/styles/nfl-icons.scss */
+
+.nfl-SF {
+  height: 30px;
+  background-position: -94px -122px;
+}
+
+/* line 149, ../../app/styles/nfl-icons.scss */
+
+.nfl-STL {
+  height: 30px;
+  background-position: -140px -122px;
+}
+
+/* line 154, ../../app/styles/nfl-icons.scss */
+
+.nfl-TB {
+  height: 30px;
+  background-position: -184px -122px;
+}
+
+/* line 159, ../../app/styles/nfl-icons.scss */
+
+.nfl-TEN {
+  height: 30px;
+  background-position: -232px -122px;
+}
+
+/* line 164, ../../app/styles/nfl-icons.scss */
+
+.nfl-WAS {
+  height: 28px;
+  background-position: -2px -152px;
+}
+
+/* line 169, ../../app/styles/nfl-icons.scss */
+
+.nfl-SEA {
+  height: 28px;
+  background-position: -48px -152px;
+}
+
+/* line 174, ../../app/styles/nfl-icons.scss */
+
+.nfl-FA {
+  background-position: -94px -152px;
+}
+
 /* line 1, ../../app/styles/main.scss */
 
 .browsehappy {
@@ -20170,9 +20418,12 @@ button.close {
 body {
   padding-top: 20px;
   padding-bottom: 20px;
+  font-family: 'Roboto';
+  background: #f7f7f7;
+  color: #45494d;
 }
 
-/* line 14, ../../app/styles/main.scss */
+/* line 17, ../../app/styles/main.scss */
 
 .footer {
   padding-left: 15px;
@@ -20181,7 +20432,7 @@ body {
 
 /* Custom page header */
 
-/* line 20, ../../app/styles/main.scss */
+/* line 23, ../../app/styles/main.scss */
 
 .header {
   border-bottom: 1px solid #e5e5e5;
@@ -20189,7 +20440,7 @@ body {
 
 /* Make the masthead heading the same height as the navigation */
 
-/* line 25, ../../app/styles/main.scss */
+/* line 28, ../../app/styles/main.scss */
 
 .header h3 {
   margin-top: 0;
@@ -20200,7 +20451,7 @@ body {
 
 /* Custom page footer */
 
-/* line 33, ../../app/styles/main.scss */
+/* line 36, ../../app/styles/main.scss */
 
 .footer {
   padding-top: 19px;
@@ -20208,7 +20459,7 @@ body {
   border-top: 1px solid #e5e5e5;
 }
 
-/* line 39, ../../app/styles/main.scss */
+/* line 42, ../../app/styles/main.scss */
 
 .container-narrow > hr {
   margin: 30px 0;
@@ -20217,7 +20468,7 @@ body {
 /* Responsive: Portrait tablets and up */
 
 @media screen and (min-width: 768px) {
-  /* line 45, ../../app/styles/main.scss */
+  /* line 48, ../../app/styles/main.scss */
 
   .container {
     max-width: 730px;
@@ -20225,7 +20476,7 @@ body {
 
   /* Remove the padding we set earlier */
 
-  /* line 52, ../../app/styles/main.scss */
+  /* line 55, ../../app/styles/main.scss */
 
   .header,
   .marketing,
@@ -20236,7 +20487,7 @@ body {
 
   /* Space out the masthead */
 
-  /* line 57, ../../app/styles/main.scss */
+  /* line 60, ../../app/styles/main.scss */
 
   .header {
     margin-bottom: 30px;
@@ -20244,7 +20495,7 @@ body {
 
   /* Remove the bottom border on the jumbotron for visual effect */
 
-  /* line 61, ../../app/styles/main.scss */
+  /* line 64, ../../app/styles/main.scss */
 
   .jumbotron {
     border-bottom: 0;
@@ -20260,25 +20511,34 @@ body {
 /* line 4, ../../app/styles/players.scss */
 
 .player-card {
-  background: #e0e0e0;
+  background: #eee;
+  border-top: 2px solid #e0e0e0;
+  border-right: 2px solid #e0e0e0;
+  color: #212121;
   padding: 10px !important;
   margin-bottom: 10px;
   text-align: center;
 }
 
-/* line 11, ../../app/styles/players.scss */
+/* line 14, ../../app/styles/players.scss */
+
+.player-card .pick-num {
+  text-align: left;
+}
+
+/* line 18, ../../app/styles/players.scss */
 
 .player-card .profile-pic {
   margin: 0 auto;
 }
 
-/* line 14, ../../app/styles/players.scss */
+/* line 21, ../../app/styles/players.scss */
 
 .player-card .profile-pic img {
-  border: 4px solid #ccc;
+  border: 2px solid #e0e0e0;
 }
 
-/* line 19, ../../app/styles/players.scss */
+/* line 26, ../../app/styles/players.scss */
 
 .player-card .up-vote,
 .player-card .down-vote {
@@ -20289,8 +20549,14 @@ body {
   outline: none;
 }
 
-/* line 27, ../../app/styles/players.scss */
+/* line 34, ../../app/styles/players.scss */
 
 .player-card .score {
   text-align: center;
+}
+
+/* line 40, ../../app/styles/players.scss */
+
+.paging {
+  padding: 10px;
 }

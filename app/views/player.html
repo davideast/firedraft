@@ -13,6 +13,15 @@
   </select>
 </div>
 
+<div class="paging text-center" data-ng-if="searched && players.length !== 1">
+  <button class="btn btn-primary"
+          data-ng-click="previous()"
+          data-ng-disabled="prevDisabled">&larr;</button>
+  <button class="btn btn-primary"
+          data-ng-click="next()"
+          data-ng-disabled="nextDisabled">&rarr;</button>
+</div>
+
 <div class="col-xs-12 player-card" data-ng-repeat="player in players">
   <div class="col-sm-3 col-xs-12">
     <div class="profile-pic">
@@ -21,16 +30,10 @@
   </div>
   <div class="player-info col-sm-6 col-xs-12">
     <h3>{{ player.first }} {{ player.last }}</h3>
-    <h5>{{ player.pos }}</h5>
+    <hgroup>
+      <h5>{{ player.pos }} - {{ player.college }}</h5>
+      <h5>{{ player.ht }} - {{ player.wt }}
+    </hgroup>
   </div>
 
-</div>
-
-<div class="paging text-center" data-ng-if="searched && players.length !== 1">
-  <button class="btn btn-primary"
-          data-ng-click="previous()"
-          data-ng-disabled="prevDisabled">&larr;</button>
-  <button class="btn btn-primary"
-          data-ng-click="next()"
-          data-ng-disabled="nextDisabled">&rarr;</button>
 </div>

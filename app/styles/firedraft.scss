@@ -1,11 +1,14 @@
 $icon-font-path: "/bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/";
-
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,100);
 @import 'bootstrap-sass-official/vendor/assets/stylesheets/bootstrap';
 
 // bower:scss
 @import "../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap.scss";
 // endbower
 
+// TODO: custom theme file
+
 // pages
+@import "nfl-icons.scss";
 @import "main.scss";
 @import "players.scss";

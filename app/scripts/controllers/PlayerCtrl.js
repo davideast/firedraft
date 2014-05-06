@@ -58,12 +58,16 @@
           // TODO: Fix this crappy offset
           PlayerService.startAt($scope.players[$scope.players.length - 1].id, PAGE_SIZE + 1, function(players) {
             if (players.length > 1) {
-              players.shift();
-              $scope.players = players;
-              $scope.nextDisabled = false;
-              $scope.prevDisabled = false;
+              $timeout(function() {
+                players.shift();
+                $scope.players = players;
+                $scope.nextDisabled = false;
+                $scope.prevDisabled = false;
+              });
             } else {
-              $scope.nextDisabled = true;
+              $timeout(function() {
+                $scope.nextDisabled = true;
+              });
             }
           });
         };
@@ -78,12 +82,16 @@
           // TODO: Fix this crappy offset
           PlayerService.endAt($scope.players[0].id, PAGE_SIZE + 1, function(players) {
             if (players.length > 1) {
-              players.pop();
-              $scope.players = players;
-              $scope.nextDisabled = false;
-              $scope.prevDisabled = false;
+              $timeout(function() {
+                players.pop();
+                $scope.players = players;
+                $scope.nextDisabled = false;
+                $scope.prevDisabled = false;
+              });
             } else {
-              $scope.prevDisabled = true;
+              $timeout(function() {
+                $scope.prevDisabled = true;
+              });
             }
           });
         };

@@ -158,8 +158,10 @@
           teamId: current.teamId
         });
 
+        console.log('picked' + (count + 1));
+
         count++;
-      }, 1000);
+      }, 5000);
 
 
     };
